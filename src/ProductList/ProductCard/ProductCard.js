@@ -1,35 +1,23 @@
 import React from "react";
-// import Card from "react-bootstrap/Card";
-// import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import classes from "./ProductCard.module.css";
+import Image from "react-bootstrap/Image";
 
-function ProductCard() {
+function ProductCard(props) {
   return (
     <div>
-      <div>
-        <div>
-          <img
-            className={classes.cardImage}
-            src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60"
-          ></img>
-        </div>
-        <div>
-          <p>Name</p>
-          <p>Price</p>
-          <p>Description</p>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+      <Card border="dark" style={{ width: "18rem" }} className={classes.card}>
+        {/* <Card.Img className={classes.cardImage} variant="top" src={props.img} /> */}
+        <Image
+          src={props.img}
+          style={{ maxHeight: "22rem", objectFit: "cover" }}
+        />
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Title>{props.name}s</Card.Title>
+          <Card.Subtitle>{props.price}</Card.Subtitle>
+          <Card.Text>{props.description}</Card.Text>
+          <Button variant="secondary">Add to Cart</Button>
         </Card.Body>
       </Card>
     </div>
